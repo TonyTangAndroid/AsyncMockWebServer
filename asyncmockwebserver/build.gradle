@@ -1,33 +1,13 @@
-apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
-
+plugins {
+    id 'com.android.library'
+}
+apply from: "${rootDir}/gradle/android_library.gradle"
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.0"
-
-    defaultConfig {
-        minSdkVersion 8
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
-    }
+    namespace 'com.mosn.asyncmockwebserver'
 }
-
 dependencies {
-    compile 'com.android.support:support-annotations:23.0.0'
-    compile 'com.squareup.okhttp:mockwebserver:2.5.0'
-
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.robolectric:robolectric:3.0'
-    testCompile 'org.hamcrest:hamcrest-library:1.3'
-}
-
-publish {
-    userOrg = USER_ORG
-    groupId = GROUP_ID
-    artifactId = ARTIFACT_ID
-    publishVersion = PUBLISH_VERSION
-    desc = DESCRIPTION
-    website = WEBSITE
+    api "com.squareup.okhttp3:mockwebserver:${okhttp}"
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.robolectric:robolectric:4.9.2'
+    testImplementation 'org.hamcrest:hamcrest-library:2.2'
 }

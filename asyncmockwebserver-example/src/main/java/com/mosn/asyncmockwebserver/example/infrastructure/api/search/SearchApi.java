@@ -5,6 +5,6 @@ import retrofit.http.GET;
 import retrofit.http.Query;
 
 public interface SearchApi {
-    @GET("/search")
-    void search(@Query("term") String term, Callback<SearchApiDto> callback);
+  @GET("/search")
+  void search(@Query("term") String term, Callback<SearchApiDto> callback);
 }

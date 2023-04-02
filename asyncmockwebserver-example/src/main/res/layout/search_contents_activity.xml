@@ -36,7 +36,7 @@
         android:textSize="@dimen/adapter_textview_secondary_font_size"
         />
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/search_contents_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"

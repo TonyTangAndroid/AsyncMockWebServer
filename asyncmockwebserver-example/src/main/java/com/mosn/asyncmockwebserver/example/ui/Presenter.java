@@ -1,10 +1,12 @@
 package com.mosn.asyncmockwebserver.example.ui;
 
-import android.support.annotation.NonNull;
 import android.view.View;
+import androidx.annotation.NonNull;
 
 public interface Presenter {
-    void bindView(@NonNull View view);
-    void unbindView();
-    boolean isBinding();
+  void bindView(@NonNull View view);
+
+  void unbindView();
+
+  boolean isBinding();
 }

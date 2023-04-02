@@ -1,43 +1,33 @@
-apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
+plugins {
+    id 'com.android.application'
+}
+apply from: "${rootDir}/gradle/android_library.gradle"
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.0"
-
+    namespace 'com.mosn.asyncmockwebserver.example'
     defaultConfig {
-        applicationId "com.mosn.asyncmockwebserver.example"
-        minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion projectVersion.targetSdk
         versionCode 1
         versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
-        mock {
-            applicationIdSuffix '.mock'
-            versionNameSuffix '-mock'
-            debuggable true
-            signingConfig signingConfigs.debug
-        }
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:23.0.0'
-    compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.pnikosis:materialish-progress:1.5'
-    compile 'com.squareup.retrofit:retrofit:1.9.0'
-    compile 'com.squareup.okhttp:okhttp:2.4.0'
-    compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0'
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.google.code.gson:gson:2.3'
-    compile 'com.google.dagger:dagger:2.0'
-    provided 'javax.annotation:jsr250-api:1.0'
-    apt 'com.google.dagger:dagger-compiler:2.0'
+    api project(":asyncmockwebserver")
+    api 'com.jakewharton:butterknife:10.2.3'
+    api 'com.pnikosis:materialish-progress:1.5'
+    api 'com.squareup.retrofit:retrofit:1.9.0'
+    api 'com.squareup.picasso:picasso:2.5.2'
+    api 'com.google.code.gson:gson:2.10.1'
+    api 'com.google.dagger:dagger:2.45'
+    compileOnly 'javax.annotation:jsr250-api:1.0'
 
-    mockCompile project(':asyncmockwebserver')
 }

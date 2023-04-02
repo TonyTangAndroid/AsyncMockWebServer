@@ -1,7 +1,7 @@
 package com.mosn.asyncmockwebserver;
 
-import com.squareup.okhttp.mockwebserver.RecordedRequest;
+import okhttp3.mockwebserver.RecordedRequest;
 
 public interface MockDispatcher {
-    boolean isDispatch(RecordedRequest request);
+  boolean isDispatch(RecordedRequest request);
 }

@@ -7,17 +7,17 @@ import java.io.InputStreamReader;
 
 public class FileUtils {
 
-    public static String inputStreamToString(InputStream is) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        StringBuilder builder = new StringBuilder();
-        String temp;
-        try {
-            while ((temp = reader.readLine()) != null) {
-                builder.append(temp);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return builder.toString();
+  public static String inputStreamToString(InputStream is) {
+    BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+    StringBuilder builder = new StringBuilder();
+    String temp;
+    try {
+      while ((temp = reader.readLine()) != null) {
+        builder.append(temp);
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+    return builder.toString();
+  }
 }
